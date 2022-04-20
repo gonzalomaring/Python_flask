@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilo.css')}}"></head>
+<body>
+    <header>
+        <h1>Gonzalo Marín Gómez</h1>
+    </header>
+    <article>
+	<h1>LIBROS DE CATEGORÍA: {{ cat }}</h1>
+    <ul>
+        {% for var in libros -%}
+    <li><a href="/libro/{{ var.get("isbn") }}">{{ var.get("titulo") }}</a></li>
+        {% endfor-%}
+    </ul>
+</article>
+</body>
+</html>

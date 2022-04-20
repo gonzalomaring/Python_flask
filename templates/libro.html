@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilo.css')}}">
+</head>
+<body>
+    <header>
+        <h1>Gonzalo Marín Gómez</h1>
+    </header>
+    <article>
+    <h1>Libro</h1>
+    <h2>Titulo</h2>
+    <p>{{ titulo }}</p>
+    <img src="{{ img }}" alt="">
+    <h2>Número de Páginas</h2>
+    <p>{{ numpag }}</p>
+    <h2>Autores</h2>
+    <ul>
+        {% for var in autores -%}
+    <li>{{ var }}</li>
+        {% endfor-%}
+    </ul>
+    <h2>Categorias</h2>
+    <ul>
+        {% for var in categorias -%}
+    <li><a href="/categoria/{{ var }}">{{ var }}</a></li>
+        {% endfor-%}
+    </ul>
+    {% if status == "MEAP" %}
+        <h2>Estado</h2>
+        <p>NO SE HA PUBLICADO</p>
+    {% endif %}
+    <h2>Descripción</h2>
+    <p>{{ descripcion }}</p>
+</article>
+</body>
+</html>
